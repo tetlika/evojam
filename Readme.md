@@ -1,8 +1,6 @@
 # Description
 
-Designed for aws. 
-
-Creates vpc, aws microsoft ad infra, windows host and registeres it into created ad.
+Designed for aws: creates VPC, aws microsoft ad infra, windows host and registeres it into created microsoft ad.
 
 # Requirements
 
