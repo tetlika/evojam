@@ -5,7 +5,6 @@
   register: "stack_facts"
 
 - name: retreive directory id
-  tasks: get directory params
   set_fact:
     directory_id : '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["DirectoryID"] }}'
     dns1: '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["PrimaryDNS"] }}'

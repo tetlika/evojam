@@ -24,6 +24,10 @@ To build whole stack simply run:
 ```
 make full-stack
 ```
+Also, you may want to run this way:
+```
+ansible-playbook playbook.yml -i inventory -e @vars.yml
+```
 To build aws microsoft infra on top of created vpc, simply run:
 ```
 make create-ms-ad
