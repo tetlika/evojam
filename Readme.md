@@ -12,7 +12,9 @@ Python's boto, botocore, boto3 modules should be installed.
 
 Adjust proper variables in vars.yml, the required params to change are aws access and secret keys. 
 
-Recommended to change passwords and keyname if the specified keyname already exists. 
+Recommended to change passwords and keyname if the specified keyname already exists in your account.
+
+If you're planning to use setup in other then us-west-2 region, please change ami-id (image) to win 2016 ami in your region. 
 
 # Usage
 
