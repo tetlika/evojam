@@ -20,6 +20,8 @@ If you're planning to use setup in other then us-west-2 region, please change am
 
 # Usage
 
+Perform all actions in the root of the clonned repo.
+
 To build whole stack simply run:
 ```
 make full-stack
