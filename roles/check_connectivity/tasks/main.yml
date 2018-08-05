@@ -1,13 +1,4 @@
 ---
-- name: register directory id
-  cloudformation_facts:
-  stack_name: "{{ ad_stack_name }}"
-  register: "stack_facts"
-
-- name: retreive directory id
-  set_fact:
-    dns1: '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["PrimaryDNS"] }}'
-
 - name: confirm there is no  connectivity
   shell: (nc "{{ dns1 }}" 389 -w 3 && exit 1 ) || echo "no connectivity"
 

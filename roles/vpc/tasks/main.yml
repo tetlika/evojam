@@ -1,5 +1,5 @@
 ---
-- name:               Create VPC
+- name:               Create VPC/register vpc into var
   ec2_vpc_net:
     name:             "{{ vpc_name }}"
     cidr_block:       "{{ vpc_cidr_block }}"
@@ -10,7 +10,7 @@
   register: vpc
   tags: create-ms-ad
 
-- name:               Create Public Subnet
+- name:               Create Public Subnet/retrieve pub subnet into vars
   ec2_vpc_subnet:
     state:            "present"
     vpc_id:           "{{ vpc.vpc.id }}"
@@ -24,7 +24,7 @@
   register: public_subnet
   tags: create-ms-ad
 
-- name:               Create Private Subnet
+- name:               Create Private Subnet/retreive private subnet into vars
   ec2_vpc_subnet:
     state:            "present"
     vpc_id:           "{{ vpc.vpc.id }}"
@@ -75,4 +75,4 @@
         to_port:      "65535"
         cidr_ip:      "{{ trusted_net }}"
   register: public_group
-
+  
