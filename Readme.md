@@ -28,3 +28,8 @@ To build aws microsoft infra on top of created vpc, simply run:
 ```
 make create-ms-ad
 ```
+You also may want to redeifine default parameters, e.g. playbook name:
+```
+make create-ms-ad playbook=playbook_new
+```
+Verifyr Makefile for more parameters and customizations.
