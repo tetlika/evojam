@@ -4,9 +4,9 @@ Designed for aws: creates VPC, aws microsoft ad infra, windows host and register
 
 # Requirements
 
-Python's boto, botocore, boto3 modules should be installed.
+Setup was tested under ansible version 2.5.1 and python 2.7.15rc1 on ubuntu 18.04.
 
-The setup was tested under ansible version 2.5.1 and python 2.7.15rc1 on ubuntu 18.04.
+Python's boto, botocore, boto3 modules should be installed.
 
 # Configuring
 
