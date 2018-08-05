@@ -1,0 +1,10 @@
+---
+
+- hosts: local
+  roles:
+    - privatekey
+    - vpc
+    - ad
+    - winserver
+    - check_connectivity
+

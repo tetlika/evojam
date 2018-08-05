@@ -1,0 +1,12 @@
+---
+- name: register directory id
+  cloudformation_facts:
+  stack_name: "{{ ad_stack_name }}"
+  register: "stack_facts"
+
+- name: retreive directory id
+  tasks: get directory params
+  set_fact:
+    directory_id : '{{ stack_facts ["ansible_facts"]["cloudformation"]["MSADstack1"]["stack_outputs"]["DirectoryID"] }}'
+
+

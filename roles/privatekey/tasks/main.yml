@@ -1,0 +1,11 @@
+---
+- name: Create a new EC2 key
+  ec2_key:
+    name: "{{ keyname}}"
+    region: "{{ aws_region }}"
+    force: false
+  register: ec2_key_result
+
+- name: Save private key
+  copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ private_key_path }}"  mode=0600
+  ignore_errors: yes

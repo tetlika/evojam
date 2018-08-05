@@ -1,0 +1,17 @@
+---
+- name: create cf stack for directory service
+  cloudformation:
+    stack_name: "{{ ad_stack_name }}"
+    region: "{{ aws_region }}"
+    state: "present"
+    template: "roles/ad/files/ad.json"
+    template_parameters:
+      Name: "{{ directory_name }}"
+      ShortName: "myadevojam"
+      Password: "{{ global_password }}"
+      VpcId: "{{ vpc.vpc.id }}"
+      subnetID1: "{{ public_subnet.subnet.id }}"
+      subnetID2: "{{ private_subnet.subnet.id }}"
+  tags: create-ms-ad
+  
+

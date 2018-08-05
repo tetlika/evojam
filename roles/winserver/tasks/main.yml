@@ -1,0 +1,32 @@
+---
+- name: register directory id
+  cloudformation_facts:
+  stack_name: "{{ ad_stack_name }}"
+  register: "stack_facts"
+
+- name: retreive directory id
+  tasks: get directory params
+  set_fact:
+    directory_id : '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["DirectoryID"] }}'
+    dns1: '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["PrimaryDNS"] }}'
+    dns2: '{{ stack_facts ["ansible_facts"]["cloudformation"][ ad_stack_name ]["stack_outputs"]["SecondaryDNS"] }}'
+
+- name: run windows machine and register into ad
+  cloudformation:
+    stack_name: "{{ win_stack_name }}"
+    region: "{{ aws_region }}"
+    state: "present"
+    template: "roles/winserver/files/win.json"
+    template_parameters:
+      AMI: "{{ image }}"
+      KeyPair: "{{ keyname }}"
+      PublicSubnet: "{{ public_subnet.subnet.id }}"
+      VPC: "{{ vpc.vpc.id }}"
+      InstanceType: "{{ instance_type }}"
+      ADDirectoryId: "{{ directory_id }}"
+      ADDirectoryName: "{{ directory_name }}"
+      ADDnsIpAddresses1: "{{ dns1 }}"
+      ADDnsIpAddresses2: "{{ dns2 }}" 
+      SecurityGroupIds: "{{ public_group.group_id }}"
+
+
