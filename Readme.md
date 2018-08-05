@@ -2,6 +2,8 @@
 
 Designed for aws: creates VPC, aws microsoft ad infra, windows host and registeres it into created microsoft ad.
 
+Note: for simplicity, the setup creates VPC with full public access, so if you plan to use it on production - consider changing security group setup.
+
 # Requirements
 
 Setup was tested under ansible version 2.5.1 and python 2.7.15rc1 on ubuntu 18.04.
