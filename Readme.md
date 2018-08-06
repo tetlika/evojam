@@ -30,6 +30,8 @@ Also, you may want to run this way:
 ```
 ansible-playbook playbook.yml -i inventory -e @vars.yml
 ```
+Note that on first run it takes around 20 minutes to accomplish because creation of directory service.
+
 To build aws microsoft infra on top of created vpc, simply run:
 ```
 make create-ms-ad
